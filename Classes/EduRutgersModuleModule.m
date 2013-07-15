@@ -86,19 +86,19 @@
 
 #pragma Public APIs
 
--(void)setNavBarFont:(id)arg
+-(void)setNavBarFontNoShadow:(id)arg
 {
-  NSLog(@"in setfont");
   UIFont * font = [[TiUtils fontValue:arg] font];
   [[UINavigationBar appearance] setTitleTextAttributes: @{
-    UITextAttributeFont: font
+    UITextAttributeFont: font,
+    UITextAttributeTextShadowColor: [UIColor clearColor]
   }];
 }
 
--(id)example:(id)args
+-(void)setNavBarImage:(id)arg
 {
-	// example method
-	return @"hello world";
+    UIImage * img = [TiUtils image:arg proxy:self];
+    [[UINavigationBar appearance] setBackgroundImage: img forBarMetrics:UIBarMetricsDefault];
 }
 
 -(id)exampleProp
